@@ -39,6 +39,9 @@ function retweetButton(uuid) {
 function renderFeed() {
   let feedHtml = "";
   for (let tweet of tweetsData) {
+    const hasBeenLiked = tweet.isLiked ? "liked" : "";
+    const hasBeenRetweeted = tweet.isRetweeted ? "retweeted" : "";
+
     feedHtml += `
         <div class="tweet">
     <div class="tweet-inner">
@@ -52,11 +55,11 @@ function renderFeed() {
                 ${tweet.replies.length}
                 </span>
                 <span class="tweet-detail">
-                <i class="fa-sharp fa-solid fa-heart" data-like="${tweet.uuid}"></i>
+                <i class="fa-sharp fa-solid fa-heart ${hasBeenLiked}" data-like="${tweet.uuid}"></i>
                 ${tweet.likes}
                 </span>
                 <span class="tweet-detail">
-                <i class="fa-solid fa-retweet" data-retweet="${tweet.uuid}"></i>
+                <i class="fa-solid fa-retweet ${hasBeenRetweeted}" data-retweet="${tweet.uuid}"></i>
                 ${tweet.retweets} 
                 </span>
             </div>   
