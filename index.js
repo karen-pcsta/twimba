@@ -45,19 +45,22 @@ function commentButton(uuid) {
 }
 
 function postOnFeed() {
-  const newTweet = document.getElementById("tweet-input").value;
-  tweetsData.unshift({
-    handle: `@Scrimba`,
-    profilePic: `images/scrimbalogo.png`,
-    likes: 0,
-    retweets: 0,
-    tweetText: newTweet,
-    replies: [],
-    isLiked: false,
-    isRetweeted: false,
-    uuid: "8hy671sff-c0f5",
-  });
-  renderFeed();
+  const tweetInput = document.getElementById("tweet-input");
+  if (tweetInput.value) {
+    tweetsData.unshift({
+      handle: `@Scrimba`,
+      profilePic: `images/scrimbalogo.png`,
+      likes: 0,
+      retweets: 0,
+      tweetText: tweetInput.value,
+      replies: [],
+      isLiked: false,
+      isRetweeted: false,
+      uuid: "8hy671sff-c0f5",
+    });
+    renderFeed();
+    tweetInput.value = "";
+  }
 }
 
 function renderFeed() {
