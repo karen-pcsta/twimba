@@ -10,7 +10,13 @@ function likeButton(uuid) {
   let tweetObject = tweetsData.filter(function (tweet) {
     return tweet.uuid === uuid;
   })[0];
-  tweetObject.likes++;
+
+  if (!tweetObject.isLiked) {
+    tweetObject.likes++;
+  } else if (tweetObject.isLiked) {
+    tweetObject.likes--;
+  }
+  tweetObject.isLiked = !tweetObject.isLiked;
   renderFeed();
 }
 
