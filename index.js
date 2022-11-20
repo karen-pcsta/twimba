@@ -7,6 +7,8 @@ document.addEventListener("click", function (e) {
     retweetButton(e.target.dataset.retweet);
   } else if (e.target.dataset.comment) {
     commentButton(e.target.dataset.comment);
+  } else if (e.target.id === "tweet-btn") {
+    postOnFeed();
   }
 });
 
@@ -40,6 +42,22 @@ function retweetButton(uuid) {
 
 function commentButton(uuid) {
   document.getElementById(`replies-${uuid}`).classList.toggle("hidden");
+}
+
+function postOnFeed() {
+  const newTweet = document.getElementById("tweet-input").value;
+  tweetsData.unshift({
+    handle: `@Scrimba`,
+    profilePic: `images/scrimbalogo.png`,
+    likes: 0,
+    retweets: 0,
+    tweetText: newTweet,
+    replies: [],
+    isLiked: false,
+    isRetweeted: false,
+    uuid: "8hy671sff-c0f5",
+  });
+  renderFeed();
 }
 
 function renderFeed() {
