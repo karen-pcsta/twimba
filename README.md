@@ -1,6 +1,6 @@
 # Twimba
 
-Twimba is a small project that we worked on module 5 of Scrimba's Frontend career path, where we used JS to recreate the interaction with the like, retweet and comment buttons
+Twimba is a small project that we worked on module 5 of Scrimba's Frontend career path, where we used JS to recreate the interaction with the like, retweet and comment buttons, while also enabling simple tweets to be rendered on the feed.
 
 ## Lessons Learned
 
